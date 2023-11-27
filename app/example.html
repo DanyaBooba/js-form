@@ -30,13 +30,13 @@
             <div id="form2">
                 <h3>2. Выбор одного</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="check2" id="check2-1">
+                    <input class="form-check-input" type="radio" name="radio2" id="check2-1">
                     <label class="form-check-label" for="check2-1">
                         Default radio
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="check2" id="check2-2">
+                    <input class="form-check-input" type="radio" name="radio2" id="check2-2">
                     <label class="form-check-label" for="check2-2">
                         Default checked radio
                     </label>
@@ -48,8 +48,20 @@
             </div>
 
             <div class="main-button">
-                <button onClick="ActivePrev()" id="button-prev" class="btn btn-secondary">Предыдущий</button>
-                <button onClick="ActiveNext()" id="button-next" class="btn btn-primary">Следующий</button>
+                <button onClick="ActivePrev()" id="button-prev" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                    </svg>
+                </button>
+                <button onClick="ActiveNext()" id="button-next" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </button>
             </div>
         </div>
     </main>

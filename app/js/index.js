@@ -1,5 +1,6 @@
 let id = 1;
 let active = 1;
+let activeblock;
 
 function MainForm() {
 	while (1) {
@@ -19,6 +20,7 @@ function MainForm() {
 
 function SetActiveId(num) {
 	active = Math.max(0, Math.min(num, id));
+	activeblock = document.getElementById("form" + num);
 	for (let i = 1; i <= id; i++) {
 		let item = document.getElementById("form" + i);
 		i == num ? item.classList.remove("d-none") : item.classList.add("d-none");
@@ -52,7 +54,21 @@ function CheckButton() {
 }
 
 function CheckCurrentPage() {
-	console.log("C: " + active);
+	let inputtype = activeblock.querySelectorAll("input");
+
+	if (inputtype.length <= 0) return;
+
+	let type = inputtype[0].getAttribute("name");
+
+	switch (type) {
+		case "radio" + active:
+			console.log("radio");
+			break;
+
+		case "check" + active:
+			console.log("check");
+			break;
+	}
 }
 
 MainForm();

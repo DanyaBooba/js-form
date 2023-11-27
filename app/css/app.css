@@ -18,9 +18,8 @@ p,h1,h2,h3,h4,h5,h6,b,i,label,div {
 
     .main-button {
         display: flex;
-        justify-content: space-between;
+        justify-content: end;
         flex-wrap: wrap;
-        /* width: 500px; */
     }
 
     .main-form {
@@ -52,10 +51,48 @@ main > div.main-form {
     margin-top: 50px;
 }
 
+main .main-button button:disabled {
+    border: 1px dashed var(--button-border-disabled);
+}
+
+main .main-button button:disabled svg {
+    fill: var(--button-border-disabled-icon);
+}
+
+main .main-button button:hover,
+main .main-button button:focus {
+    border: 1px solid var(--button-border-hover);
+}
+
+main .main-button button:focus {
+    outline: 5px solid var(--primary);
+}
+
 main .main-button button {
-    border-radius: 4px;
+    border-radius: 50px;
+    border: 1px solid var(--button-border);
+
     margin-bottom: 10px;
-    width: 49%;
+    margin-left: 10px;
+
+    padding: 10px;
+}
+
+main .main-button button svg {
+    fill: var(--text-color);
+    margin-bottom: 2px;
+    width: 16px;
+    height: 16px;
+}
+
+main .main-button button#button-prev svg {
+    margin-right: 5px;
+    margin-left: 3px;
+}
+
+main .main-button button#button-next svg {
+    margin-right: 3px;
+    margin-left: 5px;
 }
 
 main h3 {

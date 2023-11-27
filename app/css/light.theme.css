@@ -3,4 +3,9 @@
     --main-color: #fff;
     --main-border-color: #dedede;
     --text-color: #000;
+    --button-border: #8a8a8a;
+    --button-border-disabled: #dedede;
+    --button-border-disabled-icon: #4c4c4c;
+    --button-border-hover: #515151;
+    --primary: rgba(0.3, 0.3, 0.3, 0.3);
 }
