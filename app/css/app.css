@@ -1,0 +1,38 @@
+@media(min-width: 500px) {
+    main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main-button {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 400px;
+    }
+}
+
+@media(max-width: 499px) {
+    .main-button {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .main-button button {
+        width: 100% !important;
+    }
+}
+
+.main-button {
+    margin-top: 1rem;
+}
+
+main > div.main-form {
+    margin-top: 50px;
+}
+
+.main-button button {
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 49%;
+}
