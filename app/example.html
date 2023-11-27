@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="/app/css/index.css">
+    <link rel="stylesheet" href="/app/css/light.theme.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/app/css/dark.theme.css" media="(prefers-color-scheme: dark)">
     <title>Title</title>
 </head>
 <body class="container fs-5">
     <main>
         <div class="main-form">
             <div id="form1">
-                <h3>1. Check input'ы</h3>
+                <h3>1. Выбор из нескольких</h3>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="check1" value="1" id="check1-1">
                     <label class="form-check-label" for="check1-1">
-                        Default checkbox
+                        Выбор 1
                     </label>
                 </div>
                 <div class="form-check">
@@ -26,8 +28,19 @@
                 </div>
             </div>
             <div id="form2">
-                <h3>Что Вы хотели бы изменить?</h3>
-                Forma 2
+                <h3>2. Выбор одного</h3>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check2" id="check2-1">
+                    <label class="form-check-label" for="check2-1">
+                        Default radio
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="check2" id="check2-2">
+                    <label class="form-check-label" for="check2-2">
+                        Default checked radio
+                    </label>
+                </div>
             </div>
             <div id="form3">
                 <h3>Как Вам ?</h3>
