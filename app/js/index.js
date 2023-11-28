@@ -42,7 +42,7 @@ function InitProgress() {
 			"beforeend",
 			"<button class='btn' onClick='UpdateActivePage(" +
 				i +
-				")'>" +
+				")' disabled>" +
 				i +
 				"</button>"
 		);

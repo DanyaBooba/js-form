@@ -2,6 +2,19 @@
     --bg-color: #171616;
     --main-color: #1b1a1a;
     --main-border-color: #2f2f2f;
+
     --text-color: #fff;
-    --button-border: #123123;
+    --text-color-invert: #000;
+
+    --button-border: #8a8a8a;
+    --button-border-disabled: #545353;
+    --button-border-disabled-icon: #4c4c4c;
+    --button-border-hover: #515151;
+
+    --primary: rgba(100, 100, 100, 0.3);
+    --primary-progress: rgba(190, 125, 80, 0.3);
+
+    --bg-progress: #333131;
+    --bg-progress-div: #775b48;
+    --bg-progress-div-active: #ce8e64;
 }

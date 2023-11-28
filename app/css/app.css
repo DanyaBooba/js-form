@@ -145,3 +145,27 @@ main .main-progress button.active {
 main .main-progress button:focus {
     outline: 5px solid var(--primary-progress);
 }
+
+/* Input */
+
+input {
+    --bs-form-check-bg: var(--main-color) !important;
+    --bs-border-color: var(--button-border) !important;
+    --bs-body-bg: var(--main-color) !important;
+    color: var(--text-color) !important;
+}
+
+textarea {
+    --bs-form-check-bg: var(--main-color) !important;
+    --bs-border-color: var(--button-border) !important;
+    --bs-body-bg: var(--main-color) !important;
+    color: var(--text-color) !important;
+}
+
+textarea::placeholder {
+    color: var(--button-border-disabled-icon) !important;
+}
+
+input::placeholder {
+    color: var(--button-border-disabled-icon) !important;
+}
