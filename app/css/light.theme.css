@@ -3,9 +3,14 @@
     --main-color: #fff;
     --main-border-color: #dedede;
     --text-color: #000;
+    --text-color-invert: #fff;
     --button-border: #8a8a8a;
     --button-border-disabled: #dedede;
     --button-border-disabled-icon: #4c4c4c;
     --button-border-hover: #515151;
-    --primary: rgba(0.3, 0.3, 0.3, 0.3);
+    --primary: rgba(100, 100, 100, 0.3);
+    --primary-progress: rgba(190, 125, 80, 0.3);
+    --bg-progress: #eeeeee;
+    --bg-progress-div: #ffdec8;
+    --bg-progress-div-active: #ce8e64;
 }

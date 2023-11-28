@@ -1,6 +1,7 @@
 let id = 1;
 let active = 1;
 let activeblock;
+let activearray = [];
 
 function MainForm() {
 	while (1) {
@@ -15,12 +16,16 @@ function MainForm() {
 		}
 	}
 
+	InitActiveArray();
+	InitProgress();
+
 	SetActiveId(1);
 }
 
 function SetActiveId(num) {
 	active = Math.max(0, Math.min(num, id));
 	activeblock = document.getElementById("form" + num);
+
 	for (let i = 1; i <= id; i++) {
 		let item = document.getElementById("form" + i);
 		i == num ? item.classList.remove("d-none") : item.classList.add("d-none");
@@ -69,7 +74,14 @@ function CheckCurrentPage() {
 			break;
 
 		case "check" + active:
-			console.log("check");
+			let state = false;
+			for (let i = 0; i < inputtype.length; i++) {
+				if (inputtype[i].checked) {
+					state = true;
+					break;
+				}
+			}
+			activearray[active] = state;
 			break;
 
 		case "input" + active:
@@ -79,6 +91,37 @@ function CheckCurrentPage() {
 		case "textarea" + active:
 			console.log("textarea");
 			break;
+	}
+
+	let buttonnext = document.getElementById("button-next");
+
+	activearray[active] && active < id
+		? buttonnext.removeAttribute("disabled")
+		: buttonnext.setAttribute("disabled", "");
+}
+
+function UpdateInput() {
+	CheckCurrentPage();
+}
+
+function InitProgress() {
+	let progress = document.getElementsByClassName("main-progress");
+
+	if (progress.length <= 0) return;
+
+	progress = progress[0];
+
+	for (let i = 1; i <= id; i++) {
+		progress.insertAdjacentHTML(
+			"beforeend",
+			"<button class='btn' disabled>" + i + "</button>"
+		);
+	}
+}
+
+function InitActiveArray() {
+	for (let i = 0; i < id; i++) {
+		activearray[i] = false;
 	}
 }
 
