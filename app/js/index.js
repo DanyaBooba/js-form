@@ -70,33 +70,19 @@ function CheckCurrentPage() {
 
 	switch (type) {
 		case "radio" + active:
-			let state1 = false;
-			for (let i = 0; i < inputtype.length; i++) {
-				if (inputtype[i].checked) {
-					state1 = true;
-					break;
-				}
-			}
-			activearray[active] = state1;
+			activearray[active] = UpdateActiveStateRadio(inputtype);
 			break;
 
 		case "check" + active:
-			let state2 = false;
-			for (let i = 0; i < inputtype.length; i++) {
-				if (inputtype[i].checked) {
-					state2 = true;
-					break;
-				}
-			}
-			activearray[active] = state2;
+			activearray[active] = UpdateActiveStateRadio(inputtype);
 			break;
 
 		case "input" + active:
-			console.log("input");
+			activearray[active] = UpdateActiveStateInput(inputtype[0]);
 			break;
 
 		case "textarea" + active:
-			console.log("textarea");
+			activearray[active] = UpdateActiveStateInput(textareatype[0]);
 			break;
 	}
 
@@ -121,7 +107,7 @@ function InitProgress() {
 	for (let i = 1; i <= id; i++) {
 		progress.insertAdjacentHTML(
 			"beforeend",
-			"<button class='btn' disabled>" + i + "</button>"
+			"<button class='btn' onClick='SetActiveId(" + i + ")'>" + i + "</button>"
 		);
 	}
 }
@@ -132,6 +118,21 @@ function InitActiveArray() {
 	}
 }
 
-function UpdateActiveState(inputs) {}
+function UpdateActiveStateRadio(inputs) {
+	let state = false;
+
+	for (let i = 0; i < inputs.length; i++) {
+		if (inputs[i].checked) {
+			state = true;
+			break;
+		}
+	}
+
+	return state;
+}
+
+function UpdateActiveStateInput(input) {
+	return input.value;
+}
 
 MainForm();
