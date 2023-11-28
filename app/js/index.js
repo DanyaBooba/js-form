@@ -70,18 +70,25 @@ function CheckCurrentPage() {
 
 	switch (type) {
 		case "radio" + active:
-			console.log("radio");
-			break;
-
-		case "check" + active:
-			let state = false;
+			let state1 = false;
 			for (let i = 0; i < inputtype.length; i++) {
 				if (inputtype[i].checked) {
-					state = true;
+					state1 = true;
 					break;
 				}
 			}
-			activearray[active] = state;
+			activearray[active] = state1;
+			break;
+
+		case "check" + active:
+			let state2 = false;
+			for (let i = 0; i < inputtype.length; i++) {
+				if (inputtype[i].checked) {
+					state2 = true;
+					break;
+				}
+			}
+			activearray[active] = state2;
 			break;
 
 		case "input" + active:
@@ -124,5 +131,7 @@ function InitActiveArray() {
 		activearray[i] = false;
 	}
 }
+
+function UpdateActiveState(inputs) {}
 
 MainForm();
