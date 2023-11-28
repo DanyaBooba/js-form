@@ -119,7 +119,7 @@ function UpdateActiveStateRadio(inputs) {
 }
 
 function UpdateActiveStateInput(input) {
-	return input.value > 0;
+	return input.value.length > 0;
 }
 
 function UpdateActiveProgress() {
