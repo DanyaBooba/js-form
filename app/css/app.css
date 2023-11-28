@@ -138,10 +138,6 @@ main .main-progress button {
     cursor: pointer;
 }
 
-main .main-progress button.active {
-    background: var(--bg-progress-div-active) !important;
-}
-
 main .main-progress button:focus {
     outline: 5px solid var(--primary-progress);
 }

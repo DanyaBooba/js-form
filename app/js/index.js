@@ -40,7 +40,9 @@ function InitProgress() {
 	for (let i = 1; i <= id; i++) {
 		progress.insertAdjacentHTML(
 			"beforeend",
-			"<button class='btn' onClick='UpdateActivePage(" +
+			"<button class='btn' id='button-progress-" +
+				i +
+				"' onClick='UpdateActivePage(" +
 				i +
 				")' disabled>" +
 				i +
@@ -50,7 +52,8 @@ function InitProgress() {
 }
 
 function InitActiveArray() {
-	for (let i = 0; i < id; i++) {
+	activearray[0] = null;
+	for (let i = 1; i <= id; i++) {
 		activearray[i] = false;
 	}
 }
@@ -119,6 +122,15 @@ function UpdateActiveStateInput(input) {
 	return input.value > 0;
 }
 
+function UpdateActiveProgress() {
+	for (let i = 1; i <= id; i++) {
+		let button = document.getElementById("button-progress-" + i);
+		activearray[i]
+			? button.removeAttribute("disabled")
+			: button.setAttribute("disabled", "");
+	}
+}
+
 //
 // Checker
 //
@@ -150,6 +162,8 @@ function CheckCurrentPage() {
 			activearray[active] = UpdateActiveStateInput(textareatype[0]);
 			break;
 	}
+
+	UpdateActiveProgress();
 
 	let casenext;
 	let buttonnext = document.getElementById("button-next");
