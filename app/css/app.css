@@ -94,6 +94,11 @@ main .main-button button#button-next svg {
     margin-left: 5px;
 }
 
+main .main-button button#button-finish svg {
+    margin-right: 4px;
+    margin-left: 4px;
+}
+
 main h3 {
     margin-bottom: 30px;
 }
