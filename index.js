@@ -20,6 +20,7 @@ function MainForm() {
 		}
 	}
 
+	InitHeads();
 	InitActiveArray();
 	InitProgress();
 
@@ -29,6 +30,16 @@ function MainForm() {
 //
 // Initer
 //
+
+function InitHeads() {
+	let heads = document.querySelectorAll("h3");
+	for (let i = 1; i <= id; i++) {
+		let j = i;
+		j--;
+		console.log(heads[j].textContent);
+		heads[j].textContent = i + ". " + heads[j].textContent;
+	}
+}
 
 function InitProgress() {
 	let progress = document.getElementsByClassName("main-progress");
