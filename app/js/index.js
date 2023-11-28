@@ -55,10 +55,13 @@ function CheckButton() {
 
 function CheckCurrentPage() {
 	let inputtype = activeblock.querySelectorAll("input");
+	let textareatype = activeblock.querySelectorAll("textarea");
 
-	if (inputtype.length <= 0) return;
+	if (inputtype.length <= 0 && textareatype.length <= 0) return;
 
-	let type = inputtype[0].getAttribute("name");
+	let type =
+		(inputtype.length > 0 ? inputtype[0].getAttribute("name") : "") ||
+		(textareatype.length > 0 ? textareatype[0].getAttribute("name") : "");
 
 	switch (type) {
 		case "radio" + active:
@@ -67,6 +70,14 @@ function CheckCurrentPage() {
 
 		case "check" + active:
 			console.log("check");
+			break;
+
+		case "input" + active:
+			console.log("input");
+			break;
+
+		case "textarea" + active:
+			console.log("textarea");
 			break;
 	}
 }
