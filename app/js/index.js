@@ -23,7 +23,7 @@ function MainForm() {
 	InitActiveArray();
 	InitProgress();
 
-	SetActiveId(1);
+	UpdateActivePage(1);
 }
 
 //
@@ -32,12 +32,12 @@ function MainForm() {
 
 function ButtonActiveNext() {
 	active = Math.min(++active, id);
-	SetActiveId(active);
+	UpdateActivePage(active);
 }
 
 function ButtonActivePrev() {
 	active = Math.max(--active, 0);
-	SetActiveId(active);
+	UpdateActivePage(active);
 }
 
 function ButtonActiveFinish() {
@@ -56,49 +56,8 @@ function ButtonActiveFinish() {
 }
 
 //
-// Setter
-//
-
-function SetActiveId(num) {
-	active = Math.max(0, Math.min(num, id));
-	activeblock = document.getElementById("form" + num);
-	document.getElementById("form-finish").classList.add("d-none");
-
-	for (let i = 1; i <= id; i++) {
-		let item = document.getElementById("form" + i);
-		i == num ? item.classList.remove("d-none") : item.classList.add("d-none");
-	}
-
-	CheckButton();
-	CheckCurrentPage();
-}
-
-//
 // Checker
 //
-
-function CheckButton() {
-	let prev = document.getElementById("button-prev");
-	let casenext;
-	let next = document.getElementById("button-next");
-	let finish = document.getElementById("button-finish");
-
-	if (active >= id) {
-		finish.classList.remove("d-none");
-		next.classList.add("d-none");
-
-		casenext = finish;
-	} else {
-		finish.classList.add("d-none");
-		next.classList.remove("d-none");
-
-		casenext = next;
-	}
-
-	active <= 1
-		? prev.setAttribute("disabled", "")
-		: prev.removeAttribute("disabled");
-}
 
 function CheckCurrentPage() {
 	let inputtype = activeblock.querySelectorAll("input");
@@ -135,8 +94,27 @@ function CheckCurrentPage() {
 		: buttonnext.setAttribute("disabled", "");
 }
 
-function UpdateInput() {
-	CheckCurrentPage();
+function CheckButton() {
+	let prev = document.getElementById("button-prev");
+	let casenext;
+	let next = document.getElementById("button-next");
+	let finish = document.getElementById("button-finish");
+
+	if (active >= id) {
+		finish.classList.remove("d-none");
+		next.classList.add("d-none");
+
+		casenext = finish;
+	} else {
+		finish.classList.add("d-none");
+		next.classList.remove("d-none");
+
+		casenext = next;
+	}
+
+	active <= 1
+		? prev.setAttribute("disabled", "")
+		: prev.removeAttribute("disabled");
 }
 
 //
@@ -153,7 +131,11 @@ function InitProgress() {
 	for (let i = 1; i <= id; i++) {
 		progress.insertAdjacentHTML(
 			"beforeend",
-			"<button class='btn' onClick='SetActiveId(" + i + ")'>" + i + "</button>"
+			"<button class='btn' onClick='UpdateActivePage(" +
+				i +
+				")'>" +
+				i +
+				"</button>"
 		);
 	}
 }
@@ -167,6 +149,20 @@ function InitActiveArray() {
 //
 // Update active
 //
+
+function UpdateActivePage(num) {
+	active = Math.max(0, Math.min(num, id));
+	activeblock = document.getElementById("form" + num);
+	document.getElementById("form-finish").classList.add("d-none");
+
+	for (let i = 1; i <= id; i++) {
+		let item = document.getElementById("form" + i);
+		i == num ? item.classList.remove("d-none") : item.classList.add("d-none");
+	}
+
+	CheckButton();
+	CheckCurrentPage();
+}
 
 function UpdateActiveStateRadio(inputs) {
 	let state = false;
